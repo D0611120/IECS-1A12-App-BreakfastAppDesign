@@ -152,7 +152,7 @@
         android:layout_height="32dp"
         android:layout_marginEnd="110dp"
         android:layout_marginBottom="34dp"
-        android:text="$78"
+        android:text="$0"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/Shopping_btn_send"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -175,8 +175,8 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="190dp"
         android:ems="10"
+        android:hint="想對商家說的話"
         android:inputType="textPersonName"
-        android:text="想對商家說的話"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
