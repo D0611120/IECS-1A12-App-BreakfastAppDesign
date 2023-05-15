@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ttext9"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,23 +23,48 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:text="台中逢大店"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="42dp" />
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="台中逢大店"
+        android:text="04-24522863"
         tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="246dp" />
+        tools:layout_editor_absoluteY="248dp" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="台中逢大店"
+        android:text="台中市逢甲大學-資電館-資電213"
         tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="285dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="25dp"
+        android:layout_height="21dp"
+        app:srcCompat="@drawable/phoneicon"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="25dp"
+        android:layout_height="23dp"
+        app:srcCompat="@drawable/location"
+        tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="285dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
