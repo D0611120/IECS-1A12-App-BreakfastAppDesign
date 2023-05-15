@@ -45,11 +45,11 @@
                     tools:layout_editor_absoluteY="309dp" />
 
                 <TextView
-                    android:id="@+id/cart_food_tv_num"
+                    android:id="@+id/cart_food_num_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="num"
-                    android:textSize="16sp" />
+                    android:text="TextView" />
+
             </LinearLayout>
 
             <ImageView
@@ -62,11 +62,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/cart_food_num_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
