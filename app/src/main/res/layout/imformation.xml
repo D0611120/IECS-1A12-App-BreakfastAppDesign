@@ -40,31 +40,64 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="244dp"
         android:text="04-24522863"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="台中市逢甲大學-資電館-資電213"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="285dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        tools:layout_editor_absoluteY="287dp" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="25dp"
         android:layout_height="21dp"
-        app:srcCompat="@drawable/phoneicon"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="246dp" />
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintHorizontal_bias="0.561"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@drawable/phoneicon" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="25dp"
         android:layout_height="23dp"
-        app:srcCompat="@drawable/location"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="285dp" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/location" />
+
+    <RelativeLayout
+        android:layout_width="355dp"
+        android:layout_height="249dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="16dp"
+            android:text="Hello World"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
