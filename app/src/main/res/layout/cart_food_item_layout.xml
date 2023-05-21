@@ -23,7 +23,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="283dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -32,6 +32,10 @@
                     android:id="@+id/cart_food_cname_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
                     android:text="cname"
                     android:textSize="16sp" />
 
@@ -39,6 +43,9 @@
                     android:id="@+id/cart_food_price_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
                     android:text="price"
                     android:textSize="16sp"
                     tools:layout_editor_absoluteX="-157dp"
@@ -48,20 +55,31 @@
                     android:id="@+id/cart_food_num_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
-
+                    android:layout_margin="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
+                    android:text="num"
+                    android:textSize="16sp"
+                    tools:ignore="DuplicateIds" />
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
                 tools:srcCompat="@tools:sample/avatars" />
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/cart_food_num_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
