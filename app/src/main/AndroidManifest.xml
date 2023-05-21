@@ -12,7 +12,10 @@
         android:theme="@style/Theme.FoodListAPP"
         tools:targetApi="31">
         <activity
-            android:name=".imformation"
+            android:name=".news"
+            android:exported="false" />
+        <activity
+            android:name=".information"
             android:exported="false" />
         <activity
             android:name=".order"

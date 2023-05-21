@@ -6,14 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private List<food_item> food_list;
     private List<food_item> food_list_choose;
     private FloatingActionButton btn_nextpage;
+    private TextView information;
+    private TextView news;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         lvfoods = findViewById(R.id.lv1);
         btn_nextpage = findViewById(R.id.fab_next);
+        information = findViewById(R.id.main_tv_information);
+        news = findViewById(R.id.main_tv_news);
 
         food_list = new ArrayList<>();
         food_list_choose = new ArrayList<>();
@@ -49,9 +50,18 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtras(bundle);
                     intent.setClass(MainActivity.this, Shopping_cart.class);
                     startActivity(intent);
+                } else if (view.getId() == R.id.main_tv_information) {
+                    Intent intent = new Intent(MainActivity.this, information.class);
+                    startActivity(intent);
+                } else if (view.getId() == R.id.main_tv_information) {
+                    Intent intent = new Intent(MainActivity.this, news.class);
+                    startActivity(intent);
                 }
             }
         };
+
+        news.setOnClickListener(listener);
+        information.setOnClickListener(listener);
         btn_nextpage.setOnClickListener(listener);
 
         lvfoods.setOnItemClickListener(new AdapterView.OnItemClickListener() {

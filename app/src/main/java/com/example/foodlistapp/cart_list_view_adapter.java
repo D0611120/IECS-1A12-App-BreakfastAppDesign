@@ -49,10 +49,10 @@ public class cart_list_view_adapter extends BaseAdapter {
         food_cname_tv.setText(food.getFood_cname());
 
         TextView food_price_tv = view.findViewById(R.id.cart_food_price_tv);
-        food_price_tv.setText("$ " + String.valueOf(food.getFood_price()));
+        food_price_tv.setText("$" + String.valueOf(food.getFood_price()));
 
         TextView food_num_tv = view.findViewById(R.id.cart_food_num_tv);
-        food_num_tv.setText("數量:" + String.valueOf(food.getFood_num()));
+        food_num_tv.setText("數量：" + String.valueOf(food.getFood_num()));
 
         return view;
     }
