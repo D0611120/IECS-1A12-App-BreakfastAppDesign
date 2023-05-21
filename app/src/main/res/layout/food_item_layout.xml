@@ -22,29 +22,32 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="133dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/food_cname_tv"
-                android:layout_width="match_parent"
+                android:layout_width="143dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:text="cname"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/food_ename_tv"
-                android:layout_width="match_parent"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:text="ename"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/food_price_tv"
-                android:layout_width="match_parent"
+                android:layout_width="139dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:text="price"
                 android:textSize="20sp"
                 tools:layout_editor_absoluteX="-157dp"
@@ -53,8 +56,9 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
+            android:layout_width="104dp"
             android:layout_height="wrap_content"
+            android:layout_margin="25dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
             tools:srcCompat="@tools:sample/avatars" />

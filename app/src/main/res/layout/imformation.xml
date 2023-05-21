@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ttext9"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -76,28 +77,62 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/location" />
 
-    <RelativeLayout
-        android:layout_width="355dp"
-        android:layout_height="249dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:padding="10dp"
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11">
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.06"
+        app:srcCompat="@drawable/testimage" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:padding="16dp"
-            android:text="Hello World"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.304"
+        app:srcCompat="@drawable/testimage" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/line"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="486dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="191dp"
+        android:layout_height="38dp"
+        android:background="#FFFFFF"
+        app:srcCompat="@drawable/time"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="470dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="662dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="695dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
