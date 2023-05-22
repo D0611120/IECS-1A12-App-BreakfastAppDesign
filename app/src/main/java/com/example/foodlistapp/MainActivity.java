@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (view.getId() == R.id.main_tv_information) {
                     Intent intent = new Intent(MainActivity.this, information.class);
                     startActivity(intent);
-                } else if (view.getId() == R.id.main_tv_information) {
+                } else if (view.getId() == R.id.main_tv_news) {
                     Intent intent = new Intent(MainActivity.this, news.class);
                     startActivity(intent);
                 }
