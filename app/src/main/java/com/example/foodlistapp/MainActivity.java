@@ -3,6 +3,7 @@ package com.example.foodlistapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         btn_nextpage = findViewById(R.id.fab_next);
         information = findViewById(R.id.main_tv_information);
         news = findViewById(R.id.main_tv_news);
+
+        information.setPaintFlags(information.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        news.setPaintFlags(news.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
 
         food_list = new ArrayList<>();
         food_list_choose = new ArrayList<>();
