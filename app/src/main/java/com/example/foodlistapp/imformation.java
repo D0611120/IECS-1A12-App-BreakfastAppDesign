@@ -14,12 +14,12 @@ public class imformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imformation);
 
-        RelativeLayout r_layout = (RelativeLayout) findViewById(R.id.re_layout);
+        RelativeLayout r_layout = (RelativeLayout) findViewById(R.id.main_tv_information);
         r_layout.setOnClickListener((View.OnClickListener) this);
 
-        TextView text_up = (TextView) findViewById(R.id.imformaion_text4);
-        text_up.bringToFront();
-        text_up.setOnClickListener((View.OnClickListener) this);
+        //TextView text_up = (TextView) findViewById(R.id.imformaion_text4);
+        //text_up.bringToFront();
+        //text_up.setOnClickListener((View.OnClickListener) this);
     }
 
 }

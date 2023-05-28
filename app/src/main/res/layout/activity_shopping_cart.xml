@@ -7,8 +7,11 @@
     tools:context=".Shopping_cart">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,7 +20,7 @@
 
             <TextView
                 android:id="@+id/Shopping_tv1"
-                android:layout_width="196dp"
+                android:layout_width="198dp"
                 android:layout_height="63dp"
                 android:layout_marginStart="114dp"
                 android:layout_marginTop="14dp"
@@ -34,8 +37,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
                 android:layout_marginStart="70dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="70dp">
 
                 <TextView
@@ -55,8 +58,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="70dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="70dp">
 
                 <TextView
@@ -83,7 +86,9 @@
         android:id="@+id/Shopping_lv_chosen"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/Shopping_btn_back"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,36 +99,40 @@
         android:id="@+id/Shopping_tv4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="290dp"
         android:text="點餐內容"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="241dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
     <Button
         android:id="@+id/Shopping_btn_back"
         android:layout_width="123dp"
         android:layout_height="42dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginBottom="320dp"
         android:text="繼續點餐"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Shopping_tv4"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Shopping_tv5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:text="訂單備註"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="437dp" />
+        app:layout_constraintStart_toStartOf="@+id/Shopping_view"
+        app:layout_constraintTop_toBottomOf="@+id/Shopping_btn_back" />
 
     <View
         android:id="@+id/Shopping_view"
@@ -156,7 +165,7 @@
         android:id="@+id/Shopping_tv6"
         android:layout_width="48dp"
         android:layout_height="35dp"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="100dp"
         android:layout_marginBottom="16dp"
         android:text="總價"
         android:textColor="#000000"
@@ -167,7 +176,7 @@
 
     <TextView
         android:id="@+id/Shopping_tv_total"
-        android:layout_width="60dp"
+        android:layout_width="80dp"
         android:layout_height="32dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="20dp"
@@ -180,23 +189,27 @@
         android:id="@+id/Shopping_btn_send"
         android:layout_width="161dp"
         android:layout_height="47dp"
-        android:layout_marginStart="118dp"
         android:layout_marginBottom="16dp"
         android:text="送出"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/myEditText"
         android:layout_width="372dp"
         android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_background"
         android:gravity="top|start"
         android:hint="想對店家說的話"
         android:inputType="textMultiLine"
         android:maxLines="5"
         android:scrollbars="vertical"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="486dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Shopping_tv5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
