@@ -55,20 +55,32 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_margin="20dp"
-            android:text="ename" />
+            android:text="ename"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button2"
+            <TextView
+                android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="21sp"
                 android:layout_weight="1"
+                android:text="數量:"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:layout_weight="1"
+                android:background="@drawable/circle_btn"
                 android:text="@string/delete" />
 
             <TextView
@@ -84,13 +96,43 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="wrap_content"
+                android:layout_width="19dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="20dp"
+                android:layout_marginRight="25dp"
                 android:layout_weight="1"
+                android:background="@drawable/circle_btn"
                 android:text="@string/plus" />
+
         </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioOption1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+15$\n薯餅" />
+
+            <RadioButton
+                android:id="@+id/radioOption2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+20$\n麥克雞塊" />
+
+            <RadioButton
+                android:id="@+id/radioOption3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+30$\n沙拉" />
+
+        </RadioGroup>
 
         <Button
             android:id="@+id/button"

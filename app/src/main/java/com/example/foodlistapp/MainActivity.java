@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.setClass(MainActivity.this, Shopping_cart.class);
                     startActivity(intent);
                 } else if (view.getId() == R.id.main_tv_information) {
-                    Intent intent = new Intent(MainActivity.this, information.class);
+                    Intent intent = new Intent(MainActivity.this, imformation.class);
                     startActivity(intent);
                 } else if (view.getId() == R.id.main_tv_news) {
                     Intent intent = new Intent(MainActivity.this, news.class);

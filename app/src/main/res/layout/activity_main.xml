@@ -21,7 +21,6 @@
         android:text="門市資訊"
         android:textColor="#23B7B7"
         android:textDirection="firstStrong"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,8 +48,8 @@
         android:id="@+id/textView2"
         android:layout_width="252dp"
         android:layout_height="81dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="36dp"
         android:shadowColor="#717171"
         android:shadowDx="2"
         android:shadowDy="2"

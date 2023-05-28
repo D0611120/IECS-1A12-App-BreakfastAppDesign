@@ -18,9 +18,6 @@
             android:name=".news"
             android:exported="false" />
         <activity
-            android:name=".information"
-            android:exported="false" />
-        <activity
             android:name=".order"
             android:exported="false" />
         <activity
