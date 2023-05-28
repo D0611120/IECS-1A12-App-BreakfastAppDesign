@@ -7,17 +7,6 @@
     android:background="#FFFFFF"
     tools:context=".imformation">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/position_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/location" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imformaion_1"
         android:layout_width="match_parent"
@@ -26,14 +15,16 @@
         <ImageView
             android:id="@+id/imformaion_image"
             android:layout_width="wrap_content"
-            android:layout_height="106dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="531dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imformaion_text"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.652"
             app:srcCompat="@drawable/hamberger_imformation" />
 
         <TextView
@@ -41,47 +32,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="台中逢大店"
             android:textColor="#000000"
             android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.039" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/imformaion_text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="170dp"
             android:layout_marginEnd="244dp"
             android:text="04-24522863"
-            app:layout_constraintBottom_toBottomOf="@+id/imformaion_icon"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imformaion_icon"
+            app:layout_constraintTop_toBottomOf="@+id/imformaion_text" />
 
         <TextView
             android:id="@+id/imformaion_text10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="100dp"
             android:text="台中市逢甲大學-資電館-資電213"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.172"
             app:layout_constraintStart_toEndOf="@+id/imformaion_icon2"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="287dp" />
+            app:layout_constraintTop_toBottomOf="@+id/imformaion_text2"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imformaion_icon"
-            android:layout_width="25dp"
+            android:layout_width="28dp"
             android:layout_height="21dp"
-            android:layout_marginTop="48dp"
-            app:layout_constraintEnd_toStartOf="@+id/imformaion_text2"
-            app:layout_constraintHorizontal_bias="0.561"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="168dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imformaion_image"
+            app:layout_constraintTop_toBottomOf="@+id/imformaion_text"
             app:srcCompat="@drawable/phoneicon" />
 
         <ImageView
@@ -89,7 +82,7 @@
             android:layout_width="25dp"
             android:layout_height="23dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imformaion_icon"
             app:srcCompat="@drawable/location" />
@@ -98,23 +91,38 @@
             android:id="@+id/img4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imformaion_text10"
             app:srcCompat="@drawable/testimage" />
 
-        <ImageView
-            android:id="@+id/imageView5"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/position_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="51dp"
+            android:layout_marginStart="320dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img4"
-            app:srcCompat="@drawable/testimage" />
+            app:srcCompat="@drawable/location" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView2"
+            android:name="com.example.foodlistapp.MapsActivity"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

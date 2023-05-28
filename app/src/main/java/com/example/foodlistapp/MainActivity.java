@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (view.getId() == R.id.fab_next) {
                     Intent intent = new Intent(MainActivity.this, Shopping_cart.class);
                     Bundle bundle = new Bundle();
