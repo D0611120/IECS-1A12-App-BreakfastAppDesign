@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food List APP</string>
+    <string name="app_name">逢甲點餐</string>
     <string name="check">確認</string>
     <string name="plus">+</string>
     <string name="delete">-</string>

@@ -7,6 +7,10 @@
     android:background="#F4F4F4"
     tools:context=".MainActivity">
 
+
+
+
+
     <TextView
         android:id="@+id/main_tv_information"
         android:layout_width="74dp"
