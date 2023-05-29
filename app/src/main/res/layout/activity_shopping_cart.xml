@@ -7,209 +7,207 @@
     tools:context=".Shopping_cart">
 
     <ScrollView
-        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
+
+            <ListView
+                android:id="@+id/Shopping_lv_chosen"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_tv4" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/Shopping_tv1"
+                    android:layout_width="198dp"
+                    android:layout_height="63dp"
+                    android:layout_marginStart="114dp"
+                    android:layout_marginTop="14dp"
+                    android:clickable="true"
+                    android:shadowColor="#717171"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="3"
+                    android:text="台中逢大店"
+                    android:textColor="#100F0F"
+                    android:textSize="48sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="70dp">
+
+                    <TextView
+                        android:id="@+id/Shopping_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="預計取餐日期" />
+
+                    <TextView
+                        android:id="@+id/Shopping_tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="預計取餐時間" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="70dp">
+
+                    <TextView
+                        android:id="@+id/Shopping_tv_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="1/1/2023"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/Shopping_tv_time"
+                        android:layout_width="51dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="17dp"
+                        android:text="00:00"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/Shopping_tv1"
-                android:layout_width="198dp"
-                android:layout_height="63dp"
-                android:layout_marginStart="114dp"
-                android:layout_marginTop="14dp"
-                android:clickable="true"
-                android:shadowColor="#717171"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="3"
-                android:text="台中逢大店"
-                android:textColor="#100F0F"
-                android:textSize="48sp"
-                android:textStyle="bold" />
+                android:id="@+id/Shopping_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="17dp"
+                android:text="訂單備註"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_view" />
 
-            <RelativeLayout
+            <View
+                android:id="@+id/Shopping_view2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="70dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="70dp">
-
-                <TextView
-                    android:id="@+id/Shopping_tv2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="預計取餐日期" />
-
-                <TextView
-                    android:id="@+id/Shopping_tv3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="預計取餐時間" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="70dp"
+                android:layout_height="1dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="70dp">
+                android:background="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_view3"
+                tools:ignore="MissingConstraints" />
 
-                <TextView
-                    android:id="@+id/Shopping_tv_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:text="1/1/2023"
-                    android:textSize="20sp" />
+            <View
+                android:id="@+id/Shopping_view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myEditText"
+                tools:ignore="MissingConstraints" />
 
-                <TextView
-                    android:id="@+id/Shopping_tv_time"
-                    android:layout_width="51dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="17dp"
-                    android:text="00:00"
-                    android:textSize="20sp" />
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/Shopping_tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="48dp"
+                android:text="點餐內容"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/Shopping_btn_send"
+                android:layout_width="161dp"
+                android:layout_height="47dp"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="15dp"
+                android:text="送出"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_tv6" />
+
+            <EditText
+                android:id="@+id/myEditText"
+                android:layout_width="372dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_background"
+                android:gravity="top|start"
+                android:hint="想對店家說的話"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:scrollbars="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_tv5" />
+
+            <TextView
+                android:id="@+id/Shopping_tv_total"
+                android:layout_width="80dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="100dp"
+                android:text="$0"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_view2" />
+
+            <View
+                android:id="@+id/Shopping_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_btn_back"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/Shopping_btn_back"
+                android:layout_width="123dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="16dp"
+                android:text="繼續點餐"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_lv_chosen" />
+
+            <TextView
+                android:id="@+id/Shopping_tv6"
+                android:layout_width="48dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="12dp"
+                android:text="總價"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Shopping_view2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <ListView
-        android:id="@+id/Shopping_lv_chosen"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/Shopping_btn_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Shopping_tv4" />
-
-    <TextView
-        android:id="@+id/Shopping_tv4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="290dp"
-        android:text="點餐內容"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
-
-    <Button
-        android:id="@+id/Shopping_btn_back"
-        android:layout_width="123dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="320dp"
-        android:text="繼續點餐"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/Shopping_tv5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:text="訂單備註"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/Shopping_view"
-        app:layout_constraintTop_toBottomOf="@+id/Shopping_btn_back" />
-
-    <View
-        android:id="@+id/Shopping_view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="430dp" />
-
-    <View
-        android:id="@+id/Shopping_view2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="605dp" />
-
-    <View
-        android:id="@+id/Shopping_view3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="596dp" />
-
-    <TextView
-        android:id="@+id/Shopping_tv6"
-        android:layout_width="48dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="16dp"
-        android:text="總價"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Shopping_btn_send"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/Shopping_tv_total"
-        android:layout_width="80dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="20dp"
-        android:text="$0"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/Shopping_btn_send"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/Shopping_btn_send"
-        android:layout_width="161dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="16dp"
-        android:text="送出"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/myEditText"
-        android:layout_width="372dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_background"
-        android:gravity="top|start"
-        android:hint="想對店家說的話"
-        android:inputType="textMultiLine"
-        android:maxLines="5"
-        android:scrollbars="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Shopping_tv5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
