@@ -34,7 +34,7 @@ public class MapsActivity extends Fragment {
         public void onMapReady(GoogleMap googleMap) {
             LatLng sydney = new LatLng(-34, 151);
             LatLng fcu = new LatLng(24.181183, 120.646579);
-            googleMap.addMarker(new MarkerOptions().position(fcu).title("Marker in FCU"));
+            googleMap.addMarker(new MarkerOptions().position(fcu).title("台中逢大店"));
             //googleMap.moveCamera(CameraUpdateFactory.newLatLng(fcu));
             //googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             CameraPosition fcuPosition = new CameraPosition.Builder().target(fcu).zoom(17).tilt(90).build();
