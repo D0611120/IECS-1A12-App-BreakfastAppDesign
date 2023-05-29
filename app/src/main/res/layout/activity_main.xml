@@ -31,9 +31,8 @@
         android:id="@+id/main_tv_news"
         android:layout_width="59dp"
         android:layout_height="26dp"
-        android:layout_marginStart="331dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="12dp"
         android:autoLink="all"
         android:clickable="true"
         android:gravity="center_horizontal"
@@ -44,7 +43,6 @@
         android:textDirection="firstStrong"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -80,8 +78,8 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
         android:text="4月將停止蛋類餐點"
         android:textColor="#C1BCBC"
         android:textSize="16sp"
@@ -100,13 +98,13 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="53dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="47dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/location" />
+        app:srcCompat="@drawable/location_pin" />
 
     <View
         android:id="@+id/view4"
