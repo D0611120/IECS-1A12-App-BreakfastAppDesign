@@ -31,9 +31,8 @@
         android:id="@+id/main_tv_news"
         android:layout_width="59dp"
         android:layout_height="26dp"
-        android:layout_marginStart="331dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="12dp"
         android:autoLink="all"
         android:clickable="true"
         android:gravity="center_horizontal"
@@ -44,8 +43,6 @@
         android:textDirection="firstStrong"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
