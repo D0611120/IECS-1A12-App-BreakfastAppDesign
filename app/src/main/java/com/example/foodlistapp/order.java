@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +19,10 @@ public class order extends AppCompatActivity {
     private Button add;
     private Button minus;
     private food_item food;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton1;
+    private RadioButton radioButton2;
+    private RadioButton radioButton3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,10 @@ public class order extends AppCompatActivity {
         btn = findViewById(R.id.button);
         add = findViewById(R.id.button2);
         minus = findViewById(R.id.button3);
+        radioGroup = findViewById(R.id.order_RadioGroup);
+        radioButton1 = findViewById(R.id.radioOption1);
+        radioButton2 = findViewById(R.id.radioOption2);
+        radioButton3 = findViewById(R.id.radioOption3);
         TextView tv_cname = findViewById(R.id.order_tv_cname);
         TextView tv_ename = findViewById(R.id.order_tv_ename);
         TextView tv_price = findViewById(R.id.order_tv_price);
@@ -90,6 +100,23 @@ public class order extends AppCompatActivity {
                     food.setFood_num(food.getFood_num() + 1);
                     tv_num.setText(String.valueOf(food.getFood_num()));
                 }
+//                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//                    @Override
+//                    public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+//                        switch (checkedId){
+//                            case R.id.radioOption1:
+//                                int xxx = food.getFood_price() + 15;
+//                                food.setFood_price(food.getFood_price()+15);
+//                                break;
+//                            case R.id.radioOption2:
+//                                food.setFood_price(food.getFood_price()+20);
+//                                break;
+//                            case R.id.radioOption3:
+//                                food.setFood_price(food.getFood_price()+30);
+//                                break;
+//                        }
+//                    }
+//                });
             }
         };
         btn.setOnClickListener(listener);

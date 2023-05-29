@@ -2,8 +2,10 @@ package com.example.foodlistapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.content.Intent;
@@ -13,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -23,6 +26,7 @@ public class Shopping_cart extends AppCompatActivity {
 
     private ListView lvfoods;
     private Button send;
+    private Button sendOut;
     private TextView total;
     private TextView date;
     private TextView time;
@@ -37,6 +41,7 @@ public class Shopping_cart extends AppCompatActivity {
         total = findViewById(R.id.Shopping_tv_total);
         date = findViewById(R.id.Shopping_tv_date);
         time = findViewById(R.id.Shopping_tv_time);
+        sendOut = findViewById(R.id.Shopping_btn_send);
 
         Intent intent = getIntent();
         List<food_item> food_list = intent.getParcelableArrayListExtra("foodList");
@@ -72,12 +77,38 @@ public class Shopping_cart extends AppCompatActivity {
                     showDatePickerDialog();
                 } else if (view.getId() == R.id.Shopping_tv_time) {
                     showTimePickerDialog();
+                } else if (view.getId() == R.id.Shopping_btn_send){
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Shopping_cart.this);
+                    builder.setCancelable(false);
+                    builder.setTitle("確認餐點內容");
+                    builder.setMessage("請問您確認您的餐點內容皆正確無誤嗎?送出後無法修改!");
+                    builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.setPositiveButton("確認", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            Toast.makeText(Shopping_cart.this, "餐點訂單送出~請耐心等候~", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Shopping_cart.this, MainActivity.class);
+                            intent.setClass(Shopping_cart.this, MainActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(Shopping_cart.this, "已確認送出", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.create().show();
                 }
+
             }
         };
         send.setOnClickListener(listener);
         date.setOnClickListener(listener);
         time.setOnClickListener(listener);
+        sendOut.setOnClickListener(listener);
 
         int total_price = 0;
         for (food_item item : food_list_choose) {
