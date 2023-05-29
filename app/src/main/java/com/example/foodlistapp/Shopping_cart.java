@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.content.Intent;
@@ -87,6 +88,10 @@ public class Shopping_cart extends AppCompatActivity {
 
         cart_list_view_adapter adapter = new cart_list_view_adapter(this, food_list_choose);
         lvfoods.setAdapter(adapter);
+
+        ViewGroup.LayoutParams params = lvfoods.getLayoutParams();
+        params.height = 550 * food_list_choose.size(); // 设置高度为200dp，你可以根据需要进行修改
+        lvfoods.setLayoutParams(params);
     }
 
     private void showDatePickerDialog() {
