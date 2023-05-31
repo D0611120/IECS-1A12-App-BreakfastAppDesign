@@ -65,8 +65,8 @@ public class order extends AppCompatActivity {
                 if (view.getId() == R.id.button) {
                     boolean cnameExists = false;
                     for (food_item item : food_list_choose) {
-                        if (item.getFood_cname().equals(food.getFood_cname())) {
-                            item.setFood_num(food.getFood_num());
+                        if (item.getFood_cname().equals(food.getFood_cname()) && item.getFood_num() == food.getFood_num() && item.getFood_price_extra() == food.getFood_price_extra()) {
+                            item.setFood_num(item.getFood_num());
                             cnameExists = true;
                             break;
                         }
@@ -93,6 +93,7 @@ public class order extends AppCompatActivity {
                         intent.setClass(order.this, Shopping_cart.class);
                     }
                     startActivity(intent);
+                    food.setFood_price_extra(0);
                 } else if (view.getId() == R.id.button2 && food.getFood_num() >= 1) {
                     food.setFood_num(food.getFood_num() - 1);
                     tv_num.setText(String.valueOf(food.getFood_num()));
@@ -100,23 +101,22 @@ public class order extends AppCompatActivity {
                     food.setFood_num(food.getFood_num() + 1);
                     tv_num.setText(String.valueOf(food.getFood_num()));
                 }
-//                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//                    @Override
-//                    public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-//                        switch (checkedId){
-//                            case R.id.radioOption1:
-//                                int xxx = food.getFood_price() + 15;
-//                                food.setFood_price(food.getFood_price()+15);
-//                                break;
-//                            case R.id.radioOption2:
-//                                food.setFood_price(food.getFood_price()+20);
-//                                break;
-//                            case R.id.radioOption3:
-//                                food.setFood_price(food.getFood_price()+30);
-//                                break;
-//                        }
-//                    }
-//                });
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                       switch (checkedId){
+                           case R.id.radioOption1:
+                                food.setFood_price_extra(15);
+                                break;
+                            case R.id.radioOption2:
+                                food.setFood_price_extra(20);
+                                break;
+                            case R.id.radioOption3:
+                                food.setFood_price_extra(30);
+                                break;
+                        }
+                    }
+                });
             }
         };
         btn.setOnClickListener(listener);

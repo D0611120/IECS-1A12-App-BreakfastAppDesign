@@ -112,9 +112,10 @@ public class Shopping_cart extends AppCompatActivity {
 
         int total_price = 0;
         for (food_item item : food_list_choose) {
-            total_price += item.getFood_num() * item.getFood_price();
+            total_price += item.getFood_num() * (item.getFood_price()+ item.getFood_price_extra());
         }
         total.setText("$" + String.valueOf(total_price));
+
 
         cart_list_view_adapter adapter = new cart_list_view_adapter(this, food_list_choose);
         lvfoods.setAdapter(adapter);

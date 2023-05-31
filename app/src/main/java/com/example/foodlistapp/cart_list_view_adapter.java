@@ -47,9 +47,19 @@ public class cart_list_view_adapter extends BaseAdapter {
 
         TextView food_cname_tv = view.findViewById(R.id.cart_food_cname_tv);
         food_cname_tv.setText(food.getFood_cname());
+        if(food.getFood_price_extra() == 0){
+            food_cname_tv.setText(food.getFood_cname());
+        }else if(food.getFood_price_extra() == 15){
+            food_cname_tv.setText(food.getFood_cname() + "(薯餅套餐)");
+        }else if(food.getFood_price_extra() == 20){
+            food_cname_tv.setText(food.getFood_cname() + "(麥克雞塊套餐)");
+        }else if(food.getFood_price_extra() == 30){
+            food_cname_tv.setText(food.getFood_cname() + "(沙拉套餐)");
+        }
+
 
         TextView food_price_tv = view.findViewById(R.id.cart_food_price_tv);
-        food_price_tv.setText("$" + String.valueOf(food.getFood_price()));
+        food_price_tv.setText("$" + String.valueOf(food.getFood_price() + food.getFood_price_extra()));
 
         TextView food_num_tv = view.findViewById(R.id.cart_food_num_tv);
         food_num_tv.setText("數量：" + String.valueOf(food.getFood_num()));

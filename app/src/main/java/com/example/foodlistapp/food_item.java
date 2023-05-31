@@ -7,6 +7,7 @@ public class food_item implements Parcelable {
 
     private int image_id;
     private int food_price;
+    private int food_price_extra;
     private String food_cname;
     private String food_ename;
     private int food_num;
@@ -59,12 +60,17 @@ public class food_item implements Parcelable {
         this.food_num = food_num;
     }
 
+    public void setFood_price_extra(int food_price_extra){ this.food_price_extra = food_price_extra;}
+
+    public int getFood_price_extra(){ return food_price_extra; }
+
     protected food_item(Parcel in) {
         image_id = in.readInt();
         food_price = in.readInt();
         food_cname = in.readString();
         food_ename = in.readString();
         food_num = in.readInt();
+        food_price_extra = in.readInt();
     }
 
     public static final Creator<food_item> CREATOR = new Creator<food_item>() {
@@ -91,5 +97,6 @@ public class food_item implements Parcelable {
         dest.writeString(food_cname);
         dest.writeString(food_ename);
         dest.writeInt(food_num);
+        dest.writeInt(food_price_extra);
     }
 }
