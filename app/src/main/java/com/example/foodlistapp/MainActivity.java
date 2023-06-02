@@ -1,16 +1,23 @@
 package com.example.foodlistapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton btn_nextpage;
     private TextView information;
     private TextView news;
+    private Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         information.setPaintFlags(information.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         news.setPaintFlags(news.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
 
         food_list = new ArrayList<>();
@@ -94,5 +108,88 @@ public class MainActivity extends AppCompatActivity {
 
         list_view_adapter adapter = new list_view_adapter(this, food_list);
         lvfoods.setAdapter(adapter);
+
+        setSupportActionBar(toolbar);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                drawerLayout.closeDrawer(GravityCompat.START);
+
+                int id = item.getItemId();
+
+                if (id == R.id.action_home) {
+                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.action_shoppingcart) {
+                    Intent intent = new Intent(MainActivity.this, Shopping_cart.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelableArrayList("foodList", new ArrayList<>(food_list));
+                    bundle.putParcelableArrayList("foodListChoose", new ArrayList<>(food_list_choose));
+                    intent.putExtras(bundle);
+                    intent.setClass(MainActivity.this, Shopping_cart.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.action_history) {
+                    Intent intent = new Intent(MainActivity.this, record.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.action_information) {
+                    Intent intent = new Intent(MainActivity.this, imformation.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.action_news) {
+                    Intent intent = new Intent(MainActivity.this, news.class);
+                    startActivity(intent);
+                }
+
+                return false;
+            }
+        });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        // 依照id判斷點了哪個項目並做相應事件
+        if (id == R.id.toolbar_home) {
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.toolbar_shoppingcart) {
+            Intent intent = new Intent(MainActivity.this, Shopping_cart.class);
+            Bundle bundle = new Bundle();
+            bundle.putParcelableArrayList("foodList", new ArrayList<>(food_list));
+            bundle.putParcelableArrayList("foodListChoose", new ArrayList<>(food_list_choose));
+            intent.putExtras(bundle);
+            intent.setClass(MainActivity.this, Shopping_cart.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.toolbar_history) {
+            Intent intent = new Intent(MainActivity.this, record.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.toolbar_information) {
+            Intent intent = new Intent(MainActivity.this, imformation.class);
+            startActivity(intent);
+        }else if (id == R.id.toolbar_news) {
+            Intent intent = new Intent(MainActivity.this, news.class);
+            startActivity(intent);
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

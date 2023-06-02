@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_home"
+            android:title="首頁"/>
+        <item
+            android:id="@+id/action_shoppingcart"
+            android:title="購物車內容"/>
+        <item
+            android:id="@+id/action_history"
+            android:title="歷史訂單" />
+        <item
+            android:id="@+id/action_information"
+            android:title="門市資訊" />
+        <item
+            android:id="@+id/action_news"
+            android:title="最新消息" />
+    </group>
+</menu>

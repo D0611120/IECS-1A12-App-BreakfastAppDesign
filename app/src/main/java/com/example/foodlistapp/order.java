@@ -71,7 +71,7 @@ public class order extends AppCompatActivity {
                             break;
                         }
                     }
-                    if (food.getFood_num() != 0 && cnameExists == false) {
+                    if (food.getFood_num() != 0 && cnameExists == false && food.getFood_price_extra() >= 0) {
                         food_list_choose.add(food);
                     } else if (food.getFood_num() == 0 && cnameExists) {
                         food_list_choose.remove(position);
@@ -93,6 +93,7 @@ public class order extends AppCompatActivity {
                         intent.setClass(order.this, Shopping_cart.class);
                     }
                     startActivity(intent);
+                    food.setFood_num(0);
                     food.setFood_price_extra(0);
                 } else if (view.getId() == R.id.button2 && food.getFood_num() >= 1) {
                     food.setFood_num(food.getFood_num() - 1);
@@ -122,5 +123,6 @@ public class order extends AppCompatActivity {
         btn.setOnClickListener(listener);
         add.setOnClickListener(listener);
         minus.setOnClickListener(listener);
+
     }
 }
