@@ -31,6 +31,8 @@ public class Shopping_cart extends AppCompatActivity {
     private TextView total;
     private TextView date;
     private TextView time;
+    private SqlDataBaseHelper databaseHandler;
+    private List<food_item> item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +45,10 @@ public class Shopping_cart extends AppCompatActivity {
         date = findViewById(R.id.Shopping_tv_date);
         time = findViewById(R.id.Shopping_tv_time);
         sendOut = findViewById(R.id.Shopping_btn_send);
+        item = new ArrayList<>();
 
-        SqlDataBaseHelper dbHelper = new SqlDataBaseHelper(this);
-        dbHelper.open();
+        databaseHandler = new SqlDataBaseHelper(this);
+        databaseHandler.open();
 
         Intent intent = getIntent();
         List<food_item> food_list = intent.getParcelableArrayListExtra("foodList");
@@ -81,7 +84,7 @@ public class Shopping_cart extends AppCompatActivity {
                     showDatePickerDialog();
                 } else if (view.getId() == R.id.Shopping_tv_time) {
                     showTimePickerDialog();
-                } else if (view.getId() == R.id.Shopping_btn_send){
+                } else if (view.getId() == R.id.Shopping_btn_send) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(Shopping_cart.this);
                     builder.setCancelable(false);
@@ -103,30 +106,26 @@ public class Shopping_cart extends AppCompatActivity {
                             startActivity(intent);
                             Toast.makeText(Shopping_cart.this, "已確認送出", Toast.LENGTH_SHORT).show();
 
-                                String selectedDate = date.getText().toString();
-                                String selectedTime = time.getText().toString();
+                            String selectedDate = date.getText().toString();
+                            String selectedTime = time.getText().toString();
 
-                                List<food_item> foodList = new ArrayList<>();
+                            List<food_item> foodList = new ArrayList<>();
 
-                                for (int k = 0; k < lvfoods.getCount(); k++) {
-                                    View itemView = lvfoods.getChildAt(k);
-                                    if (itemView != null) {
-                                        TextView foodNumTextView = itemView.findViewById(R.id.cart_food_num_tv);
-                                        TextView foodPriceTextView = itemView.findViewById(R.id.cart_food_price_tv);
-                                        TextView foodCnameTextView = itemView.findViewById(R.id.cart_food_cname_tv);
+                            for (int k = 0; k < lvfoods.getCount(); k++) {
+                                View itemView = lvfoods.getChildAt(k);
+                                if (itemView != null) {
+                                    TextView foodNumTextView = itemView.findViewById(R.id.cart_food_num_tv);
+                                    TextView foodPriceTextView = itemView.findViewById(R.id.cart_food_price_tv);
+                                    TextView foodCnameTextView = itemView.findViewById(R.id.cart_food_cname_tv);
 
-                                        String foodNum = foodNumTextView.getText().toString();
-                                        String foodPrice = foodPriceTextView.getText().toString();
-                                        String foodCname = foodCnameTextView.getText().toString();
+                                    String foodNum = foodNumTextView.getText().toString();
+                                    String foodPrice = foodPriceTextView.getText().toString();
+                                    String foodCname = foodCnameTextView.getText().toString();
 
-                                        food_item foodItem = new food_item(0,Integer.parseInt(foodPrice),foodCname,"0", Integer.parseInt(foodNum));
-                                        foodList.add(foodItem);
-                                    }
+                                    databaseHandler.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice);
                                 }
+                            }
 
-                            for (food_item item : foodList) {
-                                    dbHelper.addItem(String.valueOf(item.getFood_num()), item.getFood_cname(), String.valueOf(item.getFood_num() * item.getFood_price()), selectedDate, selectedTime);
-                                }
                         }
                     });
                     builder.create().show();
@@ -140,7 +139,7 @@ public class Shopping_cart extends AppCompatActivity {
 
         int total_price = 0;
         for (food_item item : food_list_choose) {
-            total_price += item.getFood_num() * (item.getFood_price()+ item.getFood_price_extra());
+            total_price += item.getFood_num() * (item.getFood_price() + item.getFood_price_extra());
         }
         total.setText("$" + String.valueOf(total_price));
 
