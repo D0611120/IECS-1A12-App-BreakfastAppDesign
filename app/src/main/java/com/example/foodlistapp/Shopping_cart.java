@@ -99,6 +99,34 @@ public class Shopping_cart extends AppCompatActivity {
                             intent.setClass(Shopping_cart.this, MainActivity.class);
                             startActivity(intent);
                             Toast.makeText(Shopping_cart.this, "已確認送出", Toast.LENGTH_SHORT).show();
+
+                                // 获取date和time的文本
+                                String selectedDate = date.getText().toString();
+                                String selectedTime = time.getText().toString();
+
+                                // 创建一个空的菜品列表
+                                List<food_item> foodList = new ArrayList<>();
+
+                                // 遍历ListView中的每一项
+                                for (int k = 0; k < lvfoods.getCount(); k++) {
+                                    View itemView = lvfoods.getChildAt(k);
+                                    if (itemView != null) {
+                                        TextView foodNumTextView = itemView.findViewById(R.id.cart_food_num_tv);
+                                        TextView foodPriceTextView = itemView.findViewById(R.id.cart_food_price_tv);
+                                        TextView foodCnameTextView = itemView.findViewById(R.id.cart_food_cname_tv);
+
+                                        String foodNum = foodNumTextView.getText().toString();
+                                        String foodPrice = foodPriceTextView.getText().toString();
+                                        String foodCname = foodCnameTextView.getText().toString();
+
+                                        food_item foodItem = new food_item(0,Integer.parseInt(foodPrice),foodCname,"0", Integer.parseInt(foodNum));
+                                        foodList.add(foodItem);
+                                    }
+                                }
+                                SqlDataBaseHelper dbHelper = new SqlDataBaseHelper(Shopping_cart.this);
+                                for (food_item item : foodList) {
+                                    dbHelper.addItem(String.valueOf(item.getFood_num()), item.getFood_cname(), String.valueOf(item.getFood_num() * item.getFood_price()), selectedDate, selectedTime);
+                                }
                         }
                     });
                     builder.create().show();
