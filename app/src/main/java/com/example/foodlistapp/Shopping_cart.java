@@ -44,6 +44,9 @@ public class Shopping_cart extends AppCompatActivity {
         time = findViewById(R.id.Shopping_tv_time);
         sendOut = findViewById(R.id.Shopping_btn_send);
 
+        SqlDataBaseHelper dbHelper = new SqlDataBaseHelper(this);
+        dbHelper.open();
+
         Intent intent = getIntent();
         List<food_item> food_list = intent.getParcelableArrayListExtra("foodList");
         List<food_item> food_list_choose = intent.getParcelableArrayListExtra("foodListChoose");
@@ -100,14 +103,11 @@ public class Shopping_cart extends AppCompatActivity {
                             startActivity(intent);
                             Toast.makeText(Shopping_cart.this, "已確認送出", Toast.LENGTH_SHORT).show();
 
-                                // 获取date和time的文本
                                 String selectedDate = date.getText().toString();
                                 String selectedTime = time.getText().toString();
 
-                                // 创建一个空的菜品列表
                                 List<food_item> foodList = new ArrayList<>();
 
-                                // 遍历ListView中的每一项
                                 for (int k = 0; k < lvfoods.getCount(); k++) {
                                     View itemView = lvfoods.getChildAt(k);
                                     if (itemView != null) {
@@ -123,8 +123,8 @@ public class Shopping_cart extends AppCompatActivity {
                                         foodList.add(foodItem);
                                     }
                                 }
-                                SqlDataBaseHelper dbHelper = new SqlDataBaseHelper(Shopping_cart.this);
-                                for (food_item item : foodList) {
+
+                            for (food_item item : foodList) {
                                     dbHelper.addItem(String.valueOf(item.getFood_num()), item.getFood_cname(), String.valueOf(item.getFood_num() * item.getFood_price()), selectedDate, selectedTime);
                                 }
                         }
