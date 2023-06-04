@@ -14,7 +14,8 @@ public class SqlDataBaseHelper {
             "time TIME NOT NULL," +
             "count TEXT NOT NULL," +
             "name TEXT NOT NULL," +
-            "total TEXT NOT NULL" +
+            "total TEXT NOT NULL," +
+            "img TEXT NOT NULL" +
             ")";
     private AppCompatActivity activity;
     private SQLiteDatabase db;
@@ -28,13 +29,14 @@ public class SqlDataBaseHelper {
         db.execSQL(CREATE_TABLE);
     }
 
-    public void addItem(String date, String time, String count, String name, String total) {
+    public void addItem(String date, String time, String count, String name, String total, String img) {
         ContentValues values = new ContentValues();
         values.put("date", date);
         values.put("time", time);
         values.put("count", count);
         values.put("name", name);
         values.put("total", total);
+        values.put("img", img);
         db.insert("menu", null, values);
         db.close();
     }

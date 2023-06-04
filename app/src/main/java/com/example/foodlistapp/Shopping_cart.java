@@ -117,12 +117,14 @@ public class Shopping_cart extends AppCompatActivity {
                                     TextView foodNumTextView = itemView.findViewById(R.id.cart_food_num_tv);
                                     TextView foodPriceTextView = itemView.findViewById(R.id.cart_food_price_tv);
                                     TextView foodCnameTextView = itemView.findViewById(R.id.cart_food_cname_tv);
+                                    TextView foodimgTextView = itemView.findViewById(R.id.imageView3);
 
                                     String foodNum = foodNumTextView.getText().toString();
                                     String foodPrice = foodPriceTextView.getText().toString();
                                     String foodCname = foodCnameTextView.getText().toString();
+                                    String foodimg = foodimgTextView.getText().toString();
 
-                                    databaseHandler.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice);
+                                    databaseHandler.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodimg);
                                 }
                             }
 
