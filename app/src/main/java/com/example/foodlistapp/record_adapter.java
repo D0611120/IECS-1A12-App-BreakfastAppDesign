@@ -43,10 +43,9 @@ public class record_adapter extends BaseAdapter {
     @SuppressLint("Range")
     @Override
     public View getView(int position, View view, ViewGroup viewgroup) {
-        if (view == null){
+        if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.record_item, viewgroup, false);
         }
-
         databaseHandler.open();
         Cursor cursor = databaseHandler.getAllItems();
         if (cursor != null && cursor.moveToFirst()) {
@@ -56,19 +55,41 @@ public class record_adapter extends BaseAdapter {
                 TextView time = view.findViewById(R.id.textView21);
                 time.setText(cursor.getString(cursor.getColumnIndex("time")));
 
-                String count = cursor.getString(cursor.getColumnIndex("count"));
-                String name = cursor.getString(cursor.getColumnIndex("name"));
-                String price = cursor.getString(cursor.getColumnIndex("total"));
-                String img = cursor.getString(cursor.getColumnIndex("img"));
-
                 ListView lv = view.findViewById(R.id.record_lv);
                 List<food_item> food_list = new ArrayList<>();
-                food_list.add(new food_item(Integer.parseInt(img), Integer.parseInt(price), name, "0", Integer.parseInt(count)));
+                int id = 0;
+                int currentPosition = 0;
+                int total_price = 0;
+                int counter = 0;
+                do {
+                    counter++;
+                    currentPosition = cursor.getPosition();
+                    id = cursor.getInt(cursor.getColumnIndex("id"));
+                    String count = cursor.getString(cursor.getColumnIndex("count"));
+                    String name = cursor.getString(cursor.getColumnIndex("name"));
+                    String price = cursor.getString(cursor.getColumnIndex("total"));
+                    total_price += Integer.parseInt(price);
+                    String img = cursor.getString(cursor.getColumnIndex("img"));
+                    food_list.add(new food_item(Integer.parseInt(img), Integer.parseInt(price), name, "0", Integer.parseInt(count)));
+                    if (cursor.moveToNext()) {
+                        if (id != cursor.getInt(cursor.getColumnIndex("id"))) {
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                } while (true);
+                cursor.moveToPosition(currentPosition);
+
                 cart_list_view_adapter adapter = new cart_list_view_adapter(context, food_list);
                 lv.setAdapter(adapter);
 
+                ViewGroup.LayoutParams params = lv.getLayoutParams();
+                params.height = 400 * counter; // 设置高度为200dp，你可以根据需要进行修改
+                lv.setLayoutParams(params);
+
                 TextView total = view.findViewById(R.id.textView26);
-                total.setText("9999");
+                total.setText(String.valueOf(total_price));
             } while (cursor.moveToNext());
         }
         cursor.close();

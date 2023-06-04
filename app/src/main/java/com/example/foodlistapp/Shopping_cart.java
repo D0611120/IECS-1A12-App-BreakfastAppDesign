@@ -108,6 +108,7 @@ public class Shopping_cart extends AppCompatActivity {
 
                             String selectedDate = date.getText().toString();
                             String selectedTime = time.getText().toString();
+                            int id = dbhand2.getItemCount() + 1;
 
                             for (int k = 0; k < food_list_choose.size(); k++) {
                                 food_item food = food_list_choose.get(k);
@@ -117,7 +118,7 @@ public class Shopping_cart extends AppCompatActivity {
                                 String foodCname = String.valueOf(food.getFood_cname());
                                 String foodImg = String.valueOf(food.getImage_id());
 
-                                dbhand2.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodImg);;
+                                dbhand2.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodImg, id);;
                             }
                         }
                     });

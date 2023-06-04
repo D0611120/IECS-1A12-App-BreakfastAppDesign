@@ -15,7 +15,8 @@ public class dbhand {
             "count TEXT NOT NULL," +
             "name TEXT NOT NULL," +
             "total TEXT NOT NULL," +
-            "img TEXT NOT NULL" +
+            "img TEXT NOT NULL," +
+            "id int NOT NULL" +
             ")";
     private AppCompatActivity activity;
     private SQLiteDatabase db;
@@ -29,7 +30,7 @@ public class dbhand {
         db.execSQL(CREATE_TABLE);
     }
 
-    public void addItem(String date, String time, String count, String name, String total, String img) {
+    public void addItem(String date, String time, String count, String name, String total, String img, int id) {
         ContentValues values = new ContentValues();
         values.put("date", date);
         values.put("time", time);
@@ -37,6 +38,7 @@ public class dbhand {
         values.put("name", name);
         values.put("total", total);
         values.put("img", img);
+        values.put("id", id);
         db.insert("menu", null, values);
     }
 
@@ -45,7 +47,7 @@ public class dbhand {
     }
 
     public int getItemCount() {
-        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM menu", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM menu ORDER BY id DESC LIMIT 1", null);
         int count = 0;
         if (cursor.moveToFirst()) {
             count = cursor.getInt(0);
