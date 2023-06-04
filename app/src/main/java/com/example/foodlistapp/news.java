@@ -58,15 +58,6 @@ public class news extends AppCompatActivity {
                     Intent intent = new Intent(news.this, MainActivity.class);
                     startActivity(intent);
                 }
-                else if (id == R.id.action_shoppingcart) {
-                    Intent intent = new Intent(news.this, Shopping_cart.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelableArrayList("foodList", new ArrayList<>(food_list));
-                    bundle.putParcelableArrayList("foodListChoose", new ArrayList<>(food_list_choose));
-                    intent.putExtras(bundle);
-                    intent.setClass(news.this, Shopping_cart.class);
-                    startActivity(intent);
-                }
                 else if (id == R.id.action_history) {
                     Intent intent = new Intent(news.this, record.class);
                     startActivity(intent);
@@ -87,7 +78,7 @@ public class news extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.toolbar_menu2, menu);
         return true;
     }
 
@@ -99,15 +90,6 @@ public class news extends AppCompatActivity {
         // 依照id判斷點了哪個項目並做相應事件
         if (id == R.id.toolbar_home) {
             Intent intent = new Intent(news.this, MainActivity.class);
-            startActivity(intent);
-        }
-        else if (id == R.id.toolbar_shoppingcart) {
-            Intent intent = new Intent(news.this, Shopping_cart.class);
-            Bundle bundle = new Bundle();
-            bundle.putParcelableArrayList("foodList", new ArrayList<>(food_list));
-            bundle.putParcelableArrayList("foodListChoose", new ArrayList<>(food_list_choose));
-            intent.putExtras(bundle);
-            intent.setClass(news.this, Shopping_cart.class);
             startActivity(intent);
         }
         else if (id == R.id.toolbar_history) {

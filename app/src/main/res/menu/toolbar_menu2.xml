@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/toolbar_home"
+        android:title="首頁"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_history"
+        android:title="歷史訂單"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_information"
+        android:title="門市資訊"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_news"
+        android:title="最新消息"
+        app:showAsAction="never" />
+</menu>

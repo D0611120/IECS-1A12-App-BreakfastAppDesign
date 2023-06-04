@@ -36,17 +36,13 @@ public class imformation extends AppCompatActivity{
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
-    private ListView lvfoods;
-    private List<food_item> food_list;
-    private List<food_item> food_list_choose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imformation);
 
-        food_list = new ArrayList<>();
-        food_list_choose = new ArrayList<>();
+
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -65,15 +61,6 @@ public class imformation extends AppCompatActivity{
 
                 if (id == R.id.action_home) {
                     Intent intent = new Intent(imformation.this, MainActivity.class);
-                    startActivity(intent);
-                }
-                else if (id == R.id.action_shoppingcart) {
-                    Intent intent = new Intent(imformation.this, Shopping_cart.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelableArrayList("foodList", new ArrayList<>(food_list));
-                    bundle.putParcelableArrayList("foodListChoose", new ArrayList<>(food_list_choose));
-                    intent.putExtras(bundle);
-                    intent.setClass(imformation.this, Shopping_cart.class);
                     startActivity(intent);
                 }
                 else if (id == R.id.action_history) {
@@ -96,7 +83,7 @@ public class imformation extends AppCompatActivity{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.toolbar_menu2, menu);
         return true;
     }
 
@@ -110,15 +97,7 @@ public class imformation extends AppCompatActivity{
             Intent intent = new Intent(imformation.this, MainActivity.class);
             startActivity(intent);
         }
-        else if (id == R.id.toolbar_shoppingcart) {
-            Intent intent = new Intent(imformation.this, Shopping_cart.class);
-            Bundle bundle = new Bundle();
-            bundle.putParcelableArrayList("foodList", new ArrayList<>(food_list));
-            bundle.putParcelableArrayList("foodListChoose", new ArrayList<>(food_list_choose));
-            intent.putExtras(bundle);
-            intent.setClass(imformation.this, Shopping_cart.class);
-            startActivity(intent);
-        }
+
         else if (id == R.id.toolbar_history) {
             Intent intent = new Intent(imformation.this, record.class);
             startActivity(intent);
