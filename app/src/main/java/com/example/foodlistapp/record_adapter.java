@@ -52,7 +52,7 @@ public class record_adapter extends BaseAdapter {
             TextView date = view.findViewById(R.id.textView20);
             date.setText(cursor.getString(cursor.getColumnIndex("date")));
             TextView time = view.findViewById(R.id.textView21);
-            time.setText(cursor.getString(cursor.getColumnIndex("time")));
+            time.setText(cursor.getString(cursor.getColumnIndex("id")));
 
             ListView lv = view.findViewById(R.id.record_lv);
             List<food_item> food_list = new ArrayList<>();
@@ -64,7 +64,7 @@ public class record_adapter extends BaseAdapter {
                 String count = cursor.getString(cursor.getColumnIndex("count"));
                 String name = cursor.getString(cursor.getColumnIndex("name"));
                 String price = cursor.getString(cursor.getColumnIndex("total"));
-                total_price += Integer.parseInt(price);
+                total_price += Integer.parseInt(price)*Integer.parseInt(count);
                 String img = cursor.getString(cursor.getColumnIndex("img"));
                 food_list.add(new food_item(Integer.parseInt(img), Integer.parseInt(price), name, "0", Integer.parseInt(count)));
 
@@ -77,11 +77,11 @@ public class record_adapter extends BaseAdapter {
             lv.setAdapter(adapter);
 
             ViewGroup.LayoutParams params = lv.getLayoutParams();
-            params.height = 400 * counter; // 根据需要进行修改
+            params.height = 500 * counter; // 根据需要进行修改
             lv.setLayoutParams(params);
 
             TextView total = view.findViewById(R.id.textView26);
-            total.setText(String.valueOf(total_price));
+            total.setText("$" + String.valueOf(total_price));
         }
         cursor.close();
 
