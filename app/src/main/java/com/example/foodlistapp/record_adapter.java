@@ -1,5 +1,6 @@
 package com.example.foodlistapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
@@ -16,23 +17,17 @@ public class record_adapter extends BaseAdapter {
 
     private Context context;
 
-    private SqlDataBaseHelper databaseHandler;
+    private dbhand databaseHandler;
 
-    public record_adapter(Context context, SqlDataBaseHelper databaseHandler) {
+    public record_adapter(Context context, dbhand databaseHandler) {
         this.context = context;
         this.databaseHandler = databaseHandler;
     }
 
     @Override
     public int getCount() {
-        Cursor cursor = databaseHandler.getAll();
-        int i = 0;
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                i++;
-            } while (cursor.moveToNext());
-        }
-        return i;
+        databaseHandler.open();
+        return databaseHandler.getItemCount();
     }
 
     @Override
@@ -45,13 +40,15 @@ public class record_adapter extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("Range")
     @Override
     public View getView(int position, View view, ViewGroup viewgroup) {
         if (view == null){
             view = LayoutInflater.from(context).inflate(R.layout.record_item, viewgroup, false);
         }
 
-        Cursor cursor = databaseHandler.getAll();
+        databaseHandler.open();
+        Cursor cursor = databaseHandler.getAllItems();
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 TextView date = view.findViewById(R.id.textView20);
@@ -75,6 +72,7 @@ public class record_adapter extends BaseAdapter {
             } while (cursor.moveToNext());
         }
         cursor.close();
-        return null;
+
+        return view; // 返回适配器的视图
     }
 }

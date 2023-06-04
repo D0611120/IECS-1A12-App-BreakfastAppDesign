@@ -31,7 +31,7 @@ public class Shopping_cart extends AppCompatActivity {
     private TextView total;
     private TextView date;
     private TextView time;
-    private SqlDataBaseHelper databaseHandler;
+    private dbhand dbhand2;
     private List<food_item> item;
 
     @Override
@@ -47,8 +47,8 @@ public class Shopping_cart extends AppCompatActivity {
         sendOut = findViewById(R.id.Shopping_btn_send);
         item = new ArrayList<>();
 
-        databaseHandler = new SqlDataBaseHelper(this);
-        databaseHandler.open();
+        dbhand2 = new dbhand(this);
+        dbhand2.open();
 
         Intent intent = getIntent();
         List<food_item> food_list = intent.getParcelableArrayListExtra("foodList");
@@ -85,7 +85,6 @@ public class Shopping_cart extends AppCompatActivity {
                 } else if (view.getId() == R.id.Shopping_tv_time) {
                     showTimePickerDialog();
                 } else if (view.getId() == R.id.Shopping_btn_send) {
-
                     AlertDialog.Builder builder = new AlertDialog.Builder(Shopping_cart.this);
                     builder.setCancelable(false);
                     builder.setTitle("確認餐點內容");
@@ -109,25 +108,16 @@ public class Shopping_cart extends AppCompatActivity {
                             String selectedDate = date.getText().toString();
                             String selectedTime = time.getText().toString();
 
-                            List<food_item> foodList = new ArrayList<>();
+                            for (int k = 0; k < food_list_choose.size(); k++) {
+                                food_item food = food_list_choose.get(k);
 
-                            for (int k = 0; k < lvfoods.getCount(); k++) {
-                                View itemView = lvfoods.getChildAt(k);
-                                if (itemView != null) {
-                                    TextView foodNumTextView = itemView.findViewById(R.id.cart_food_num_tv);
-                                    TextView foodPriceTextView = itemView.findViewById(R.id.cart_food_price_tv);
-                                    TextView foodCnameTextView = itemView.findViewById(R.id.cart_food_cname_tv);
-                                    TextView foodimgTextView = itemView.findViewById(R.id.imageView3);
+                                String foodNum = String.valueOf(food.getFood_num());
+                                String foodPrice = String.valueOf(food.getFood_price());
+                                String foodCname = String.valueOf(food.getFood_cname());
+                                String foodImg = String.valueOf(food.getImage_id());
 
-                                    String foodNum = foodNumTextView.getText().toString();
-                                    String foodPrice = foodPriceTextView.getText().toString();
-                                    String foodCname = foodCnameTextView.getText().toString();
-                                    String foodimg = foodimgTextView.getText().toString();
-
-                                    databaseHandler.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodimg);
-                                }
+                                dbhand2.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodImg);;
                             }
-
                         }
                     });
                     builder.create().show();
