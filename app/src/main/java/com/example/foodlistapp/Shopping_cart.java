@@ -48,7 +48,6 @@ public class Shopping_cart extends AppCompatActivity {
         item = new ArrayList<>();
 
         dbhand2 = new dbhand(this);
-        dbhand2.open();
 
         Intent intent = getIntent();
         List<food_item> food_list = intent.getParcelableArrayListExtra("foodList");
@@ -108,7 +107,9 @@ public class Shopping_cart extends AppCompatActivity {
 
                             String selectedDate = date.getText().toString();
                             String selectedTime = time.getText().toString();
+                            dbhand2.open();
                             int id = dbhand2.getItemCount() + 1;
+                            int test = dbhand2.all();
 
                             for (int k = 0; k < food_list_choose.size(); k++) {
                                 food_item food = food_list_choose.get(k);
@@ -118,7 +119,7 @@ public class Shopping_cart extends AppCompatActivity {
                                 String foodCname = String.valueOf(food.getFood_cname());
                                 String foodImg = String.valueOf(food.getImage_id());
 
-                                dbhand2.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodImg, id);;
+                                dbhand2.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodImg, id);
                             }
                         }
                     });

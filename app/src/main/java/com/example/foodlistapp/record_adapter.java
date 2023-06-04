@@ -48,52 +48,44 @@ public class record_adapter extends BaseAdapter {
         }
         databaseHandler.open();
         Cursor cursor = databaseHandler.getAllItems();
-        if (cursor != null && cursor.moveToFirst()) {
+        if (cursor != null && cursor.moveToPosition(position)) {
+            TextView date = view.findViewById(R.id.textView20);
+            date.setText(cursor.getString(cursor.getColumnIndex("date")));
+            TextView time = view.findViewById(R.id.textView21);
+            time.setText(cursor.getString(cursor.getColumnIndex("time")));
+
+            ListView lv = view.findViewById(R.id.record_lv);
+            List<food_item> food_list = new ArrayList<>();
+            int total_price = 0;
+            int counter = 0;
             do {
-                TextView date = view.findViewById(R.id.textView20);
-                date.setText(cursor.getString(cursor.getColumnIndex("date")));
-                TextView time = view.findViewById(R.id.textView21);
-                time.setText(cursor.getString(cursor.getColumnIndex("time")));
+                counter++;
+                int id = cursor.getInt(cursor.getColumnIndex("id"));
+                String count = cursor.getString(cursor.getColumnIndex("count"));
+                String name = cursor.getString(cursor.getColumnIndex("name"));
+                String price = cursor.getString(cursor.getColumnIndex("total"));
+                total_price += Integer.parseInt(price);
+                String img = cursor.getString(cursor.getColumnIndex("img"));
+                food_list.add(new food_item(Integer.parseInt(img), Integer.parseInt(price), name, "0", Integer.parseInt(count)));
 
-                ListView lv = view.findViewById(R.id.record_lv);
-                List<food_item> food_list = new ArrayList<>();
-                int id = 0;
-                int currentPosition = 0;
-                int total_price = 0;
-                int counter = 0;
-                do {
-                    counter++;
-                    currentPosition = cursor.getPosition();
-                    id = cursor.getInt(cursor.getColumnIndex("id"));
-                    String count = cursor.getString(cursor.getColumnIndex("count"));
-                    String name = cursor.getString(cursor.getColumnIndex("name"));
-                    String price = cursor.getString(cursor.getColumnIndex("total"));
-                    total_price += Integer.parseInt(price);
-                    String img = cursor.getString(cursor.getColumnIndex("img"));
-                    food_list.add(new food_item(Integer.parseInt(img), Integer.parseInt(price), name, "0", Integer.parseInt(count)));
-                    if (cursor.moveToNext()) {
-                        if (id != cursor.getInt(cursor.getColumnIndex("id"))) {
-                            break;
-                        }
-                    } else {
-                        break;
-                    }
-                } while (true);
-                cursor.moveToPosition(currentPosition);
+                if (!cursor.moveToNext() || id != cursor.getInt(cursor.getColumnIndex("id"))) {
+                    break;
+                }
+            } while (true);
 
-                cart_list_view_adapter adapter = new cart_list_view_adapter(context, food_list);
-                lv.setAdapter(adapter);
+            cart_list_view_adapter adapter = new cart_list_view_adapter(context, food_list);
+            lv.setAdapter(adapter);
 
-                ViewGroup.LayoutParams params = lv.getLayoutParams();
-                params.height = 400 * counter; // 设置高度为200dp，你可以根据需要进行修改
-                lv.setLayoutParams(params);
+            ViewGroup.LayoutParams params = lv.getLayoutParams();
+            params.height = 400 * counter; // 根据需要进行修改
+            lv.setLayoutParams(params);
 
-                TextView total = view.findViewById(R.id.textView26);
-                total.setText(String.valueOf(total_price));
-            } while (cursor.moveToNext());
+            TextView total = view.findViewById(R.id.textView26);
+            total.setText(String.valueOf(total_price));
         }
         cursor.close();
 
-        return view; // 返回适配器的视图
+        return view;
     }
+
 }

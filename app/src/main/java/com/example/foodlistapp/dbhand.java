@@ -47,7 +47,17 @@ public class dbhand {
     }
 
     public int getItemCount() {
-        Cursor cursor = db.rawQuery("SELECT * FROM menu ORDER BY id DESC LIMIT 1", null);
+        Cursor cursor = db.rawQuery("SELECT id FROM menu ORDER BY id DESC", null);
+        int count = 0;
+        if (cursor.moveToFirst()) {
+            count = cursor.getInt(0);
+        }
+        cursor.close();
+        return count;
+    }
+
+    public int all() {
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM menu", null);
         int count = 0;
         if (cursor.moveToFirst()) {
             count = cursor.getInt(0);
