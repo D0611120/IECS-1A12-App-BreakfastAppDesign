@@ -126,28 +126,39 @@
                     android:layout_marginTop="21sp"
                     android:layout_weight="1"
                     android:text="套餐內容:"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radioOption0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="+0$\n無套餐"
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/radioOption1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="+15$\n薯餅" />
+                    android:text="+15$\n薯餅"
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/radioOption2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="+20$\n麥克雞塊" />
+                    android:text="+20$\n麥克雞塊"
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/radioOption3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="+30$\n沙拉" />
+                    android:text="+30$\n沙拉"
+                    android:textSize="12sp" />
 
             </RadioGroup>
         </LinearLayout>

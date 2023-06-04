@@ -111,22 +111,22 @@ public class Shopping_cart extends AppCompatActivity {
 
                             List<food_item> foodList = new ArrayList<>();
 
-                            for (int k = 0; k < lvfoods.getCount(); k++) {
-                                View itemView = lvfoods.getChildAt(k);
-                                if (itemView != null) {
-                                    TextView foodNumTextView = itemView.findViewById(R.id.cart_food_num_tv);
-                                    TextView foodPriceTextView = itemView.findViewById(R.id.cart_food_price_tv);
-                                    TextView foodCnameTextView = itemView.findViewById(R.id.cart_food_cname_tv);
-                                    TextView foodimgTextView = itemView.findViewById(R.id.imageView3);
-
-                                    String foodNum = foodNumTextView.getText().toString();
-                                    String foodPrice = foodPriceTextView.getText().toString();
-                                    String foodCname = foodCnameTextView.getText().toString();
-                                    String foodimg = foodimgTextView.getText().toString();
-
-                                    databaseHandler.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodimg);
-                                }
-                            }
+//                            for (int k = 0; k < lvfoods.getCount(); k++) {
+//                                View itemView = lvfoods.getChildAt(k);
+//                                if (itemView != null) {
+//                                    TextView foodNumTextView = itemView.findViewById(R.id.cart_food_num_tv);
+//                                    TextView foodPriceTextView = itemView.findViewById(R.id.cart_food_price_tv);
+//                                    TextView foodCnameTextView = itemView.findViewById(R.id.cart_food_cname_tv);
+//                                    TextView foodimgTextView = itemView.findViewById(R.id.imageView3);
+//
+//                                    String foodNum = foodNumTextView.getText().toString();
+//                                    String foodPrice = foodPriceTextView.getText().toString();
+//                                    String foodCname = foodCnameTextView.getText().toString();
+//                                    String foodimg = foodimgTextView.getText().toString();
+//
+//                                    databaseHandler.addItem(selectedDate, selectedTime, foodNum, foodCname, foodPrice, foodimg);
+//                                }
+//                            }
 
                         }
                     });
