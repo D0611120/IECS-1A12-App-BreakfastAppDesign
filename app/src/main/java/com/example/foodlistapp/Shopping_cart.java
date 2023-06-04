@@ -85,6 +85,7 @@ public class Shopping_cart extends AppCompatActivity {
                 } else if (view.getId() == R.id.Shopping_tv_time) {
                     showTimePickerDialog();
                 } else if (view.getId() == R.id.Shopping_btn_send) {
+
                     AlertDialog.Builder builder = new AlertDialog.Builder(Shopping_cart.this);
                     builder.setCancelable(false);
                     builder.setTitle("確認餐點內容");

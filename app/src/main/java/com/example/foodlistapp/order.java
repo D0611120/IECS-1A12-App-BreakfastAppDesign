@@ -20,6 +20,7 @@ public class order extends AppCompatActivity {
     private Button minus;
     private food_item food;
     private RadioGroup radioGroup;
+    private RadioButton radioButton0;
     private RadioButton radioButton1;
     private RadioButton radioButton2;
     private RadioButton radioButton3;
@@ -33,6 +34,7 @@ public class order extends AppCompatActivity {
         add = findViewById(R.id.button2);
         minus = findViewById(R.id.button3);
         radioGroup = findViewById(R.id.order_RadioGroup);
+        radioButton0 = findViewById(R.id.radioOption0);
         radioButton1 = findViewById(R.id.radioOption1);
         radioButton2 = findViewById(R.id.radioOption2);
         radioButton3 = findViewById(R.id.radioOption3);
@@ -59,6 +61,8 @@ public class order extends AppCompatActivity {
         iv_image.setImageResource(food.getImage_id());
         iv_image.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
+        radioGroup.check(R.id.radioOption0);
+
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +70,7 @@ public class order extends AppCompatActivity {
                     boolean cnameExists = false;
                     for (food_item item : food_list_choose) {
                         if (item.getFood_cname().equals(food.getFood_cname()) && item.getFood_num() == food.getFood_num() && item.getFood_price_extra() == food.getFood_price_extra()) {
-                            item.setFood_num(item.getFood_num());
+                            food.setFood_num(item.getFood_num());
                             cnameExists = true;
                             break;
                         }
@@ -93,8 +97,6 @@ public class order extends AppCompatActivity {
                         intent.setClass(order.this, Shopping_cart.class);
                     }
                     startActivity(intent);
-                    food.setFood_num(0);
-                    food.setFood_price_extra(0);
                 } else if (view.getId() == R.id.button2 && food.getFood_num() >= 1) {
                     food.setFood_num(food.getFood_num() - 1);
                     tv_num.setText(String.valueOf(food.getFood_num()));
@@ -105,14 +107,18 @@ public class order extends AppCompatActivity {
                 radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+
                        switch (checkedId){
+                           case R.id.radioOption0:
+                               food.setFood_price_extra(0);
+                               break;
                            case R.id.radioOption1:
                                 food.setFood_price_extra(15);
                                 break;
-                            case R.id.radioOption2:
+                           case R.id.radioOption2:
                                 food.setFood_price_extra(20);
                                 break;
-                            case R.id.radioOption3:
+                           case R.id.radioOption3:
                                 food.setFood_price_extra(30);
                                 break;
                         }
@@ -123,6 +129,8 @@ public class order extends AppCompatActivity {
         btn.setOnClickListener(listener);
         add.setOnClickListener(listener);
         minus.setOnClickListener(listener);
-
+        tv_num.setText(String.valueOf(0));
+        food.setFood_num(0);
+        food.setFood_price_extra(0);
     }
 }
