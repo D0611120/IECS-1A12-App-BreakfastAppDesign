@@ -5,5 +5,6 @@
 前往至[UI設計網址](https://www.figma.com/file/9MvEnBbfg4rpRfDcglqV6a/APP-COURSE-TEMPLATE?node-id=132%3A335&t=rcllRTedq0pY12F1-1)
 
 ### 2.APP使用
+使用android studio開啟模擬器並把專案導入至android,`api = 30` 尺寸 = XL
 
 
